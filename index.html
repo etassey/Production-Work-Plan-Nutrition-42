@@ -284,11 +284,14 @@
     </div>
   </div>
 
-</div> <script>
+</div>
+
+<script>
   const $ = sel => document.querySelector(sel);
   const $$ = (root, sel) => root.querySelector(sel);
   const $$all = (root, sel) => Array.from(root.querySelectorAll(sel));
 
+  /* ---------- generic repeatable row builder (scoped to a container element) ---------- */
   function makeRow(container, rowClass, fields, minRows, onChange){
     const row = document.createElement('div');
     row.className = 'rrow ' + rowClass;
@@ -324,6 +327,7 @@
     });
   }
 
+  /* ---------- header: team members ---------- */
   function memberRowFields(){
     return [
       {label:'Name', cls:'member-name', placeholder:'Team member name'},
@@ -347,6 +351,7 @@
   addMemberRow(); addMemberRow();
   addAssignRow(); addAssignRow();
 
+  /* ---------- recipe blocks ---------- */
   let recipeCounter = 0;
   const recipeContainer = document.getElementById('recipeBlocksContainer');
 
@@ -548,6 +553,7 @@
   document.getElementById('addRecipeBtn').addEventListener('click', addRecipeBlock);
   addRecipeBlock();
 
+  /* ---------- progress ---------- */
   function filled(id){ return document.getElementById(id).value.trim().length > 0; }
   function inputFilled(el){ return el && el.value.trim().length > 0; }
   function rowsFilled(container, classes){
@@ -600,7 +606,8 @@
   document.addEventListener('input', refreshProgress);
   document.addEventListener('change', refreshProgress);
   refreshProgress();
-</script>  /* ---------- PDF generation ---------- */
+
+  /* ---------- PDF generation ---------- */
   function collectRows(container, colClasses){
     return Array.from(container.children)
       .map(row => colClasses.map(c => (row.querySelector('.'+c) ? row.querySelector('.'+c).value.trim() : '')))
@@ -703,6 +710,7 @@
       y = doc.lastAutoTable.finalY + 22;
     }
 
+    /* ---- header / ticket ---- */
     doc.setFont('helvetica','bold');
     doc.setFontSize(19);
     doc.setTextColor(...ink);
@@ -731,6 +739,7 @@
     dashedLine(y);
     y += 26;
 
+    /* ---- recipe sections ---- */
     const blocks = $$all(document,'.recipe-block');
     blocks.forEach((block, idx)=>{
       const name = $$(block,'.r-name').value.trim() || ('Recipe ' + (idx+1));
@@ -771,6 +780,7 @@
     dashedLine(y);
     y += 26;
 
+    /* ---- team check-in ---- */
     sectionHeader('Team Check-In & Task Assignment', leaf);
     const memberRows = sanitizeRows(collectRows(document.getElementById('memberRows'), ['member-name','member-role']));
     table(['Team Member','Role Today'], memberRows, leaf);
@@ -779,6 +789,7 @@
       .map((r,i)=>[String(i+1), r[0], r[1], r[2], r[3]]);
     table(['#','Recipe','Task','Assigned To','Notes'], assignRows, leaf, {0:{cellWidth:18}});
 
+    /* ---- open write-in box: filled by hand at lab, not typed in advance ---- */
     ensureSpace(110);
     doc.setFont('helvetica','bold');
     doc.setFontSize(9.5);
@@ -797,6 +808,7 @@
     }
     y += (writeBoxLines-1)*writeBoxLineGap + 26;
 
+    /* ---- sign-off ---- */
     ensureSpace(60);
     doc.setFont('helvetica','bold');
     doc.setFontSize(9.5);
@@ -814,6 +826,7 @@
     doc.text('Time', M+260, y+12);
     y += 30;
 
+    /* ---- footer on every page ---- */
     const pageCount = doc.internal.getNumberOfPages();
     for(let i=1;i<=pageCount;i++){
       doc.setPage(i);
@@ -929,6 +942,7 @@
       y = doc.lastAutoTable.finalY + 22;
     }
 
+    /* ---- header / ticket ---- */
     doc.setFont('helvetica','bold');
     doc.setFontSize(19);
     doc.setTextColor(...ink);
@@ -954,6 +968,7 @@
     dashedLine(y);
     y += 26;
 
+    /* ---- recipe sections (mirrors however many recipes are set up, minimum 1) ---- */
     const recipeCount = Math.max($$all(document,'.recipe-block').length, 1);
     for(let idx=0; idx<recipeCount; idx++){
       sectionHeader('Recipe ' + (idx+1));
@@ -996,12 +1011,14 @@
     dashedLine(y);
     y += 26;
 
+    /* ---- team check-in ---- */
     sectionHeader('Team Check-In & Task Assignment', leaf);
     blankTable(['Team Member','Role Today'], 4, leaf);
     blankTable(['#','Recipe','Task','Assigned To','Notes'], 6, leaf, {0:{cellWidth:18}});
 
     blankBlock('Changes needed after group meets, prior to beginning recipe (e.g. a member missing)', 4);
 
+    /* ---- sign-off ---- */
     ensureSpace(60);
     doc.setFont('helvetica','bold');
     doc.setFontSize(9.5);
@@ -1019,6 +1036,7 @@
     doc.text('Time', M+260, y+12);
     y += 30;
 
+    /* ---- footer on every page ---- */
     const pageCount = doc.internal.getNumberOfPages();
     for(let i=1;i<=pageCount;i++){
       doc.setPage(i);
@@ -1047,3 +1065,4 @@
 
 </body>
 </html>
+
