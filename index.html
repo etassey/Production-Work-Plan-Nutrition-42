@@ -30,6 +30,7 @@
     -webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:960px;margin:0 auto;padding:0 20px 90px;}
+
   .banner{
     padding:52px 20px 34px;
     max-width:960px;
@@ -58,10 +59,12 @@
     padding:8px 12px;
     margin-top:14px;
   }
+
   .progress{display:flex;gap:6px;margin-top:26px;}
   .progress .seg{flex:1;height:6px;background:var(--rule);border-radius:3px;overflow:hidden;}
   .progress .seg i{display:block;height:100%;width:0%;background:var(--leaf);transition:width .35s ease;}
   .progress-label{font-size:13px;color:var(--ink-soft);margin-top:8px;}
+
   .step{padding:42px 0;border-bottom:1px solid var(--rule);}
   .step:last-of-type{border-bottom:none;}
   .step-head{display:flex;gap:22px;align-items:flex-start;margin-bottom:6px;}
@@ -76,6 +79,7 @@
   .step-kicker{font-size:13px;color:var(--turmeric-dark);font-weight:600;margin:0 0 4px;}
   .step h2{font-family:'Fraunces', serif;font-weight:600;font-size:23px;margin:0 0 10px;}
   .step p.help{color:var(--ink-soft);font-size:15px;margin:0 0 18px;max-width:66ch;}
+
   label.field-label{display:block;font-weight:600;font-size:14.5px;margin:0 0 6px;color:var(--ink);}
   .hint{font-size:13px;color:var(--ink-soft);margin:-4px 0 10px;}
   textarea, input[type="text"], input[type="date"], input[type="number"]{
@@ -86,15 +90,18 @@
   textarea:focus, input:focus{outline:none;border-color:var(--turmeric-dark);}
   textarea{min-height:56px;}
   textarea.short{min-height:40px;}
+
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
   .grid2 .field, .grid3 .field{margin-bottom:14px;}
   @media (max-width:640px){.grid2, .grid3{grid-template-columns:1fr;}}
+
   .scale-display{
     font-family:'JetBrains Mono', monospace;font-size:14px;color:var(--leaf);
     background:#eef2ea;border-radius:8px;padding:9px 13px;display:inline-block;margin:-4px 0 18px;
   }
   .scale-display b{font-size:16px;}
+
   /* repeatable rows */
   .rowset{display:flex;flex-direction:column;gap:10px;margin-bottom:12px;}
   .rrow{
@@ -122,17 +129,20 @@
     font-size:11.5px;font-weight:700;border-radius:7px;padding:0 8px;cursor:pointer;white-space:nowrap;
   }
   .mini-btn:hover{border-color:var(--turmeric-dark);color:var(--turmeric-dark);}
+
   .ing-row{grid-template-columns:34px 1.3fr 1fr 1fr auto 30px;}
+  .mise-row{grid-template-columns:34px 1.2fr 1.3fr 30px;}
   .equip-row{grid-template-columns:1.2fr 1.4fr 30px;}
   .ccp-row{grid-template-columns:34px 1.1fr 1.1fr 1.3fr 30px;}
   .member-row{grid-template-columns:1fr 1fr 30px;}
   .assign-row{grid-template-columns:34px 1fr 1.1fr 1fr 1.1fr 30px;}
   @media (max-width:820px){
-    .ing-row, .ccp-row, .assign-row, .equip-row, .member-row{grid-template-columns:1fr;}
+    .ing-row, .mise-row, .ccp-row, .assign-row, .equip-row, .member-row{grid-template-columns:1fr;}
     .rrow .rnum{display:none;}
     .rrow .rm-btn, .rrow .mini-btn{justify-self:end;}
   }
   .col-label{font-size:11.5px;color:var(--ink-soft);font-weight:700;margin-bottom:2px;display:block;}
+
   /* recipe block card */
   .recipe-block{
     border:1.5px solid var(--rule);background:#fffdf8;border-radius:14px;
@@ -146,11 +156,13 @@
   }
   .remove-recipe-btn:hover{border-color:var(--chili);}
   .sub-label{font-weight:600;font-size:14.5px;margin:18px 0 6px;display:block;color:var(--ink);}
+
   .add-recipe-btn{
     background:var(--ink);color:var(--cream);border:none;font-weight:700;font-size:14.5px;
     border-radius:9px;padding:12px 18px;cursor:pointer;margin-bottom:8px;
   }
   .add-recipe-btn:hover{background:#3d2c1e;}
+
   .summary-wrap{margin-top:16px;padding:30px 0 0;}
   .summary-cta{background:var(--ink);color:var(--cream);border-radius:14px;padding:32px;text-align:left;}
   .summary-cta h2{font-family:'Fraunces', serif;font-weight:600;font-size:23px;margin:0 0 8px;color:#fff;}
@@ -162,11 +174,20 @@
   }
   .btn:hover{background:#dba53c;}
   .btn:active{transform:translateY(1px);}
+  .btn-outline{
+    display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--cream);
+    font-family:'Karla', sans-serif;font-weight:700;font-size:15px;border:1.5px solid #6b5a45;border-radius:9px;
+    padding:12px 20px;cursor:pointer;transition:background .15s ease, transform .1s ease;margin-left:10px;
+  }
+  .btn-outline:hover{background:rgba(255,255,255,0.08);}
+  .btn-outline:active{transform:translateY(1px);}
+  .btn-row{display:flex;flex-wrap:wrap;gap:0;}
   .incomplete-note{font-size:13.5px;color:#f0c9b8;margin-top:14px;font-weight:600;}
   .gen-note{font-size:13px;color:#9fd0a0;margin-top:12px;font-weight:600;min-height:16px;}
 </style>
 </head>
 <body>
+
 <div class="banner">
   <p class="eyebrow">NUTR-42 &nbsp;·&nbsp; <b>Reusable Lab Tool</b></p>
   <h1>Lab Production Work Plan</h1>
@@ -179,7 +200,9 @@
   </div>
   <p class="progress-label" id="progressLabel">0 of 3 sections complete</p>
 </div>
+
 <div class="wrap">
+
   <!-- STEP 1: HEADER -->
   <div class="step">
     <div class="step-head">
@@ -208,6 +231,7 @@
       </div>
     </div>
   </div>
+
   <!-- STEP 2: RECIPE BLOCKS -->
   <div class="step">
     <div class="step-head">
@@ -215,12 +239,13 @@
       <div class="step-body">
         <p class="step-kicker">Per recipe</p>
         <h2>Recipe readiness</h2>
-        <p class="help">Add one block per recipe your station is producing this lab. Each block covers scaling, equipment, and food safety for that dish only — keep entries tight and specific to this recipe, not general knowledge.</p>
+        <p class="help">Add one block per recipe your station is producing this lab. Each block covers scaling, prep sequence, equipment, and food safety for that dish only — keep entries tight and specific to this recipe, not general knowledge.</p>
       </div>
     </div>
     <div id="recipeBlocksContainer"></div>
     <button type="button" class="add-recipe-btn" id="addRecipeBtn">+ Add another recipe</button>
   </div>
+
   <!-- STEP 3: TEAM CHECK-IN -->
   <div class="step">
     <div class="step-head">
@@ -231,32 +256,40 @@
         <p class="help">Do this together, as a team, before you start cooking. Every task across all your recipes should end up with a name next to it.</p>
       </div>
     </div>
+
     <label class="field-label">Who's on your team today?</label>
     <div class="rowset" id="memberRows"></div>
     <button type="button" class="add-row-btn" id="addMemberBtn">+ Add team member</button>
+
     <label class="field-label">Task assignments (across all recipes)</label>
     <p class="hint">List recipe + task + who's covering it.</p>
     <div class="rowset" id="assignRows"></div>
     <button type="button" class="add-row-btn" id="addAssignBtn">+ Add task</button>
-    <label class="field-label" for="checkinNotes">What changed after comparing everyone's individual plans?</label>
-    <p class="hint">e.g. differences in scaling, timing conflicts, equipment sharing — one or two sentences.</p>
-    <textarea class="short" id="checkinNotes" placeholder="What did you adjust as a team?"></textarea>
+
+    <label class="field-label" for="checkinNotes">Changes needed after group meets, prior to beginning recipe</label>
+    <p class="hint">e.g. a member missing, scaling differences, timing conflicts, equipment sharing.</p>
+    <textarea id="checkinNotes" placeholder="Write in at lab, once the team has met" style="min-height:110px;"></textarea>
   </div>
+
   <div class="summary-wrap">
     <div class="summary-cta">
       <h2>Generate your work plan</h2>
-      <p>This builds a printable PDF formatted like a production kitchen work plan — bring it to lab, and file it in the production manual afterward.</p>
-      <button class="btn" id="generateBtn">Download work plan (PDF)</button>
+      <p>This builds a printable PDF formatted like a production kitchen work plan — bring it to lab, and file it in the production manual afterward. Prefer to write by hand? Download the blank version instead and fill it in on paper.</p>
+      <div class="btn-row">
+        <button class="btn" id="generateBtn">Download work plan (PDF)</button>
+        <button class="btn-outline" id="generateBlankBtn">Download blank fill-in PDF</button>
+      </div>
       <div class="incomplete-note" id="incompleteNote" style="display:none;"></div>
       <div class="gen-note" id="genNote"></div>
     </div>
   </div>
+
 </div>
 <script>
   const $ = sel => document.querySelector(sel);
   const $$ = (root, sel) => root.querySelector(sel);
   const $$all = (root, sel) => Array.from(root.querySelectorAll(sel));
-  /* ---------- generic repeatable row builder (scoped to a container element) ---------- */
+
   function makeRow(container, rowClass, fields, minRows, onChange){
     const row = document.createElement('div');
     row.className = 'rrow ' + rowClass;
@@ -284,13 +317,14 @@
     if(onChange) onChange(row);
     return row;
   }
+
   function renumber(container){
     Array.from(container.children).forEach((row,idx)=>{
       const num = row.querySelector('.rnum');
       if(num) num.textContent = '#' + (idx+1);
     });
   }
-  /* ---------- header: team members ---------- */
+
   function memberRowFields(){
     return [
       {label:'Name', cls:'member-name', placeholder:'Team member name'},
@@ -308,13 +342,15 @@
     ];
   }
   function addAssignRow(){ makeRow(document.getElementById('assignRows'),'assign-row', assignRowFields(), 2); }
+
   document.getElementById('addMemberBtn').addEventListener('click', addMemberRow);
   document.getElementById('addAssignBtn').addEventListener('click', addAssignRow);
   addMemberRow(); addMemberRow();
   addAssignRow(); addAssignRow();
-  /* ---------- recipe blocks ---------- */
+
   let recipeCounter = 0;
   const recipeContainer = document.getElementById('recipeBlocksContainer');
+
   function ingRowFields(){
     return [
       {type:'num'},
@@ -322,6 +358,13 @@
       {label:'Recipe amount', cls:'ing-orig', placeholder:'As written, e.g. 2 cups'},
       {label:'Your scaled amount', cls:'ing-scaled', placeholder:'Recalculated amount'},
       {type:'btn', cls:'ing-auto', text:'Scale ×'},
+    ];
+  }
+  function miseRowFields(){
+    return [
+      {type:'num'},
+      {label:'Prep task', cls:'mise-task', placeholder:'e.g. Brown the chicken'},
+      {label:'Why this order', cls:'mise-why', placeholder:'Why it happens before/after other tasks'},
     ];
   }
   function equipRowFields(){
@@ -338,6 +381,7 @@
       {label:'Control measure', cls:'ccp-control', placeholder:'e.g. Ice bath, shallow pan, monitor temp'},
     ];
   }
+
   function recipeBlockTemplate(id){
     return `
     <div class="recipe-block" data-id="${id}">
@@ -345,10 +389,12 @@
         <h3>Recipe <span class="rb-index"></span></h3>
         <button type="button" class="remove-recipe-btn">Remove this recipe</button>
       </div>
+
       <div class="field">
         <label class="field-label">Recipe name</label>
         <input type="text" class="r-name" placeholder="Recipe name" />
       </div>
+
       <div class="grid3">
         <div class="field">
           <label class="field-label">Yield written (number)</label>
@@ -364,33 +410,45 @@
         </div>
       </div>
       <div class="scale-display">Scaling factor: <b class="r-factor">—</b></div>
+
       <div class="field">
         <label class="field-label">In one sentence: what are you making, and how?</label>
         <input type="text" class="r-paraphrase" placeholder="One sentence, in your own words" />
       </div>
+
       <label class="sub-label">Ingredients that need recalculating</label>
       <p class="hint">Only ones where the scaled amount actually changes your prep. Use "Scale ×" to auto-multiply a leading number, then adjust as needed.</p>
       <div class="rowset r-ing-rows"></div>
       <button type="button" class="add-row-btn add-ing-btn">+ Add ingredient</button>
+
       <div class="field">
         <label class="field-label">Ingredient(s) you did NOT scale linearly, and why</label>
         <p class="hint">e.g. salt, leavening, spice, cook time — things that don't just multiply.</p>
         <textarea class="short r-nonlinear" placeholder="Which ones, and why not linear?"></textarea>
       </div>
+
+      <label class="sub-label">Mise en place sequence</label>
+      <p class="hint">List your prep tasks in the order you'll do them — no clock times, just the sequence and why it's in that order.</p>
+      <div class="rowset r-mise-rows"></div>
+      <button type="button" class="add-row-btn add-mise-btn">+ Add task</button>
+
       <label class="sub-label">Special equipment for this recipe</label>
       <p class="hint">Only non-standard, limited, or shared/reservable items.</p>
       <div class="rowset r-equip-rows"></div>
       <button type="button" class="add-row-btn add-equip-btn">+ Add item</button>
+
       <label class="sub-label">Critical control points</label>
       <p class="hint">Where could this specific recipe actually go wrong?</p>
       <div class="rowset r-ccp-rows"></div>
       <button type="button" class="add-row-btn add-ccp-btn">+ Add control point</button>
+
       <div class="field">
         <label class="field-label">Which control point above is most likely to slip, and what's your fallback?</label>
         <textarea class="short r-risk" placeholder="Your biggest risk for this recipe, and your plan B"></textarea>
       </div>
     </div>`;
   }
+
   function updateFactor(block){
     const w = parseFloat($$(block,'.r-yield-written').value);
     const n = parseFloat($$(block,'.r-yield-needed').value);
@@ -401,6 +459,7 @@
       el.textContent = '—';
     }
   }
+
   function wireAutoScale(row, block){
     const btn = row.querySelector('.ing-auto');
     if(!btn) return;
@@ -438,6 +497,7 @@
       refreshProgress();
     });
   }
+
   function addRecipeBlock(){
     recipeCounter++;
     const wrapper = document.createElement('div');
@@ -445,6 +505,7 @@
     const block = wrapper.firstElementChild;
     recipeContainer.appendChild(block);
     renumberRecipeBlocks();
+
     $$(block,'.remove-recipe-btn').addEventListener('click', ()=>{
       if(document.querySelectorAll('.recipe-block').length > 1){
         block.remove();
@@ -452,30 +513,42 @@
         refreshProgress();
       }
     });
+
     $$(block,'.r-yield-written').addEventListener('input', ()=>updateFactor(block));
     $$(block,'.r-yield-needed').addEventListener('input', ()=>updateFactor(block));
+
     const ingRows = $$(block,'.r-ing-rows');
+    const miseRows = $$(block,'.r-mise-rows');
     const equipRows = $$(block,'.r-equip-rows');
     const ccpRows = $$(block,'.r-ccp-rows');
+
     function addIng(){ const r = makeRow(ingRows,'ing-row', ingRowFields(), 1); wireAutoScale(r, block); }
+    function addMise(){ makeRow(miseRows,'mise-row', miseRowFields(), 2); }
     function addEquip(){ makeRow(equipRows,'equip-row', equipRowFields(), 1); }
     function addCcp(){ makeRow(ccpRows,'ccp-row', ccpRowFields(), 1); }
+
     $$(block,'.add-ing-btn').addEventListener('click', addIng);
+    $$(block,'.add-mise-btn').addEventListener('click', addMise);
     $$(block,'.add-equip-btn').addEventListener('click', addEquip);
     $$(block,'.add-ccp-btn').addEventListener('click', addCcp);
+
     addIng(); addIng();
+    addMise(); addMise();
     addEquip();
     addCcp(); addCcp();
+
     refreshProgress();
   }
+
   function renumberRecipeBlocks(){
     $$all(document,'.recipe-block').forEach((block,idx)=>{
       $$(block,'.rb-index').textContent = idx+1;
     });
   }
+
   document.getElementById('addRecipeBtn').addEventListener('click', addRecipeBlock);
   addRecipeBlock();
-  /* ---------- progress ---------- */
+
   function filled(id){ return document.getElementById(id).value.trim().length > 0; }
   function inputFilled(el){ return el && el.value.trim().length > 0; }
   function rowsFilled(container, classes){
@@ -483,9 +556,11 @@
     if(rows.length===0) return false;
     return rows.some(row => classes.every(c => row.querySelector('.'+c) && row.querySelector('.'+c).value.trim().length>0));
   }
+
   function isHeaderComplete(){
     return filled('studentName') && filled('labWeek') && filled('station') && filled('labDate');
   }
+
   function isRecipeBlockComplete(block){
     return inputFilled($$(block,'.r-name')) &&
       inputFilled($$(block,'.r-yield-written')) &&
@@ -494,19 +569,23 @@
       inputFilled($$(block,'.r-paraphrase')) &&
       rowsFilled($$(block,'.r-ing-rows'), ['ing-name','ing-orig','ing-scaled']) &&
       inputFilled($$(block,'.r-nonlinear')) &&
+      rowsFilled($$(block,'.r-mise-rows'), ['mise-task','mise-why']) &&
       rowsFilled($$(block,'.r-ccp-rows'), ['ccp-step','ccp-hazard','ccp-control']) &&
       inputFilled($$(block,'.r-risk'));
   }
+
   function areRecipesComplete(){
     const blocks = $$all(document,'.recipe-block');
     if(blocks.length===0) return false;
     return blocks.every(isRecipeBlockComplete);
   }
+
   function isTeamComplete(){
     return rowsFilled(document.getElementById('memberRows'), ['member-name']) &&
       rowsFilled(document.getElementById('assignRows'), ['assign-recipe','assign-task','assign-who']) &&
       filled('checkinNotes');
   }
+
   function refreshProgress(){
     const states = [isHeaderComplete(), areRecipesComplete(), isTeamComplete()];
     let complete = 0;
@@ -518,9 +597,11 @@
     });
     document.getElementById('progressLabel').textContent = complete + ' of 3 sections complete';
   }
+
   document.addEventListener('input', refreshProgress);
   document.addEventListener('change', refreshProgress);
   refreshProgress();
+</script>
   /* ---------- PDF generation ---------- */
   function collectRows(container, colClasses){
     return Array.from(container.children)
@@ -531,12 +612,14 @@
     return rows.map(r => r.map(v => (v || '').replace(/→/g, '->')));
   }
   function pdfSafe(s){ return (s || '').replace(/→/g, '->'); }
+
   function ticketNumber(){
     const d = new Date();
     const pad = n => String(n).padStart(2,'0');
     return 'WP-' + d.getFullYear() + pad(d.getMonth()+1) + pad(d.getDate()) +
            '-' + pad(d.getHours()) + pad(d.getMinutes()) + pad(d.getSeconds());
   }
+
   function buildPdf(){
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF({ unit:'pt', format:'letter' });
@@ -545,12 +628,14 @@
     const pageH = doc.internal.pageSize.getHeight();
     const contentW = pageW - M*2;
     let y = M;
+
     const ink = [43,29,20];
     const soft = [90,74,58];
     const turmeric = [156,111,34];
     const chili = [168,64,46];
     const leaf = [75,106,69];
     const rule = [227,214,189];
+
     function ensureSpace(needed){
       if(y + needed > pageH - 60){
         doc.addPage();
@@ -619,11 +704,12 @@
       });
       y = doc.lastAutoTable.finalY + 22;
     }
-    /* ---- header / ticket ---- */
+
     doc.setFont('helvetica','bold');
     doc.setFontSize(19);
     doc.setTextColor(...ink);
     doc.text('PRODUCTION WORK PLAN', M, y+6);
+
     doc.setFont('courier','normal');
     doc.setFontSize(9);
     doc.setTextColor(...turmeric);
@@ -632,22 +718,26 @@
     y += 30;
     dashedLine(y);
     y += 22;
+
     const colW = (contentW - 20) / 2;
     let rowMax = 0;
     rowMax = Math.max(rowMax, labelValue('Student', $('#studentName').value, M, colW));
     rowMax = Math.max(rowMax, labelValue('Lab / Week', $('#labWeek').value, M+colW+20, colW));
     y += Math.max(rowMax*13, 13) + 20;
+
     rowMax = 0;
     rowMax = Math.max(rowMax, labelValue('Station', $('#station').value, M, colW));
     rowMax = Math.max(rowMax, labelValue('Date', $('#labDate').value, M+colW+20, colW));
     y += Math.max(rowMax*13, 13) + 18;
+
     dashedLine(y);
     y += 26;
-    /* ---- recipe sections ---- */
+
     const blocks = $$all(document,'.recipe-block');
     blocks.forEach((block, idx)=>{
       const name = $$(block,'.r-name').value.trim() || ('Recipe ' + (idx+1));
       sectionHeader('Recipe ' + (idx+1) + ' — ' + name);
+
       const yw = $$(block,'.r-yield-written').value.trim();
       const yn = $$(block,'.r-yield-needed').value.trim();
       const yu = $$(block,'.r-yield-unit').value.trim();
@@ -655,36 +745,65 @@
       paragraph('Yield written -> needed / scaling factor',
         (yw||'—') + ' -> ' + (yn||'—') + ' ' + (yu||'') + '   (factor: ' + factorText + ')', 10.5);
       paragraph('In one sentence', $$(block,'.r-paraphrase').value);
+
       const ingRows = sanitizeRows(collectRows($$(block,'.r-ing-rows'), ['ing-name','ing-orig','ing-scaled']));
       table(['Ingredient','Recipe Amount','Scaled Amount'], ingRows, ink);
+
       paragraph('Not scaled linearly, and why', $$(block,'.r-nonlinear').value);
+
+      const miseRows = sanitizeRows(collectRows($$(block,'.r-mise-rows'), ['mise-task','mise-why']))
+        .map((r,i)=>[String(i+1), r[0], r[1]]);
+      table(['#','Prep Task','Why This Order'], miseRows, turmeric, {0:{cellWidth:20}});
+
       const equipRows = sanitizeRows(collectRows($$(block,'.r-equip-rows'), ['equip-item','equip-note']));
       table(['Item','Notes'], equipRows, turmeric);
+
       const ccpRows = sanitizeRows(collectRows($$(block,'.r-ccp-rows'), ['ccp-step','ccp-hazard','ccp-control']))
         .map((r,i)=>[String(i+1), r[0], r[1], r[2]]);
       table(['#','Step','Hazard','Control Measure'], ccpRows, chili, {0:{cellWidth:20}});
+
       paragraph('Most likely to slip / fallback plan', $$(block,'.r-risk').value);
+
       if(idx < blocks.length - 1){
         dashedLine(y);
         y += 20;
       }
     });
+
     dashedLine(y);
     y += 26;
-    /* ---- team check-in ---- */
+
     sectionHeader('Team Check-In & Task Assignment', leaf);
     const memberRows = sanitizeRows(collectRows(document.getElementById('memberRows'), ['member-name','member-role']));
     table(['Team Member','Role Today'], memberRows, leaf);
+
     const assignRows = sanitizeRows(collectRows(document.getElementById('assignRows'), ['assign-recipe','assign-task','assign-who','assign-note']))
       .map((r,i)=>[String(i+1), r[0], r[1], r[2], r[3]]);
     table(['#','Recipe','Task','Assigned To','Notes'], assignRows, leaf, {0:{cellWidth:18}});
-    paragraph('Adjustments after comparing plans', $('#checkinNotes').value);
-    /* ---- sign-off ---- */
+
+    ensureSpace(110);
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(9.5);
+    doc.setTextColor(...soft);
+    doc.text('CHANGES NEEDED AFTER GROUP MEETS, PRIOR TO BEGINNING RECIPE', M, y);
+    y += 8;
+    doc.setFont('helvetica','normal');
+    doc.setFontSize(8.5);
+    doc.setTextColor(...soft);
+    doc.text('e.g. a member missing, scaling differences, timing conflicts, equipment sharing', M, y+8);
+    y += 20;
+    const writeBoxLines = 4;
+    const writeBoxLineGap = 18;
+    for(let i=0;i<writeBoxLines;i++){
+      dashedLine(y + i*writeBoxLineGap);
+    }
+    y += (writeBoxLines-1)*writeBoxLineGap + 26;
+
     ensureSpace(60);
     doc.setFont('helvetica','bold');
     doc.setFontSize(9.5);
     doc.setTextColor(...soft);
-    doc.text('CHECKED AT START OF LAB', M, y);
+    doc.text('INSTRUCTOR/TECHNICIAN', M, y);
     y += 20;
     doc.setDrawColor(...ink);
     doc.setLineWidth(0.8);
@@ -693,10 +812,10 @@
     doc.setFont('helvetica','normal');
     doc.setFontSize(8.5);
     doc.setTextColor(...soft);
-    doc.text('Instructor / TA initials', M, y+12);
+    doc.text('Instructor/Technician initials', M, y+12);
     doc.text('Time', M+260, y+12);
     y += 30;
-    /* ---- footer on every page ---- */
+
     const pageCount = doc.internal.getNumberOfPages();
     for(let i=1;i<=pageCount;i++){
       doc.setPage(i);
@@ -712,10 +831,12 @@
       const pgLabel = 'Page ' + i + ' of ' + pageCount;
       doc.text(pgLabel, pageW - M - doc.getTextWidth(pgLabel), fy+14);
     }
+
     const firstName = ($$all(document,'.recipe-block')[0] && $$(document.querySelector('.recipe-block'),'.r-name').value.trim()) || 'lab';
     const fileName = (firstName.replace(/[^a-z0-9]+/gi,'-').toLowerCase() || 'work-plan') + '-work-plan.pdf';
     doc.save(fileName);
   }
+
   document.getElementById('generateBtn').addEventListener('click', ()=>{
     const allDone = isHeaderComplete() && areRecipesComplete() && isTeamComplete();
     const note = document.getElementById('incompleteNote');
@@ -729,8 +850,202 @@
     document.getElementById('genNote').textContent = 'PDF downloaded.';
     setTimeout(()=>{ document.getElementById('genNote').textContent = ''; }, 5000);
   });
+
+  /* ---------- blank, hand-writable PDF template ---------- */
+  function buildBlankPdf(){
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit:'pt', format:'letter' });
+    const M = 40;
+    const pageW = doc.internal.pageSize.getWidth();
+    const pageH = doc.internal.pageSize.getHeight();
+    const contentW = pageW - M*2;
+    let y = M;
+
+    const ink = [43,29,20];
+    const soft = [90,74,58];
+    const turmeric = [156,111,34];
+    const chili = [168,64,46];
+    const leaf = [75,106,69];
+    const rule = [227,214,189];
+
+    function ensureSpace(needed){
+      if(y + needed > pageH - 60){
+        doc.addPage();
+        y = M;
+      }
+    }
+    function dashedLine(yy){
+      doc.setDrawColor(...rule);
+      doc.setLineDashPattern([3,2], 0);
+      doc.line(M, yy, pageW-M, yy);
+      doc.setLineDashPattern([], 0);
+    }
+    function sectionHeader(title, color){
+      ensureSpace(30);
+      doc.setFont('helvetica','bold');
+      doc.setFontSize(11.5);
+      doc.setTextColor(...(color||chili));
+      doc.text(title.toUpperCase(), M, y);
+      y += 6;
+      doc.setDrawColor(...(color||chili));
+      doc.setLineWidth(1.2);
+      doc.line(M, y, M+34, y);
+      y += 16;
+      doc.setTextColor(...ink);
+    }
+    function blankField(label, x, width){
+      doc.setFont('helvetica','bold');
+      doc.setFontSize(8.5);
+      doc.setTextColor(...soft);
+      doc.text(label.toUpperCase(), x, y);
+      doc.setDrawColor(...rule);
+      doc.setLineWidth(0.75);
+      doc.line(x, y+15, x+width, y+15);
+      return 1;
+    }
+    function blankBlock(label, numLines){
+      ensureSpace(numLines*18 + 30);
+      doc.setFont('helvetica','bold');
+      doc.setFontSize(9.5);
+      doc.setTextColor(...soft);
+      doc.text(label, M, y);
+      y += 14;
+      for(let i=0;i<numLines;i++){
+        dashedLine(y + i*18);
+      }
+      y += (numLines-1)*18 + 26;
+    }
+    function blankTable(head, numRows, headColor, colStyles){
+      const body = Array.from({length:numRows}, ()=>head.map(()=>''));
+      ensureSpace(60);
+      doc.autoTable({
+        startY: y,
+        head: [head],
+        body: body,
+        margin: { left:M, right:M },
+        theme: 'grid',
+        columnStyles: colStyles || {},
+        styles: { font:'helvetica', fontSize:9.5, cellPadding:9, textColor:ink, lineColor:rule, lineWidth:0.75, minCellHeight:20 },
+        headStyles: { fillColor: headColor, textColor: [255,255,255], fontStyle:'bold' },
+      });
+      y = doc.lastAutoTable.finalY + 22;
+    }
+
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(19);
+    doc.setTextColor(...ink);
+    doc.text('PRODUCTION WORK PLAN', M, y+6);
+
+    doc.setFont('helvetica','normal');
+    doc.setFontSize(9);
+    doc.setTextColor(...turmeric);
+    const blankLabel = 'BLANK TEMPLATE — FOR HANDWRITING';
+    doc.text(blankLabel, pageW - M - doc.getTextWidth(blankLabel), y+6);
+    y += 30;
+    dashedLine(y);
+    y += 22;
+
+    const colW = (contentW - 20) / 2;
+    blankField('Student', M, colW);
+    blankField('Lab / Week', M+colW+20, colW);
+    y += 32;
+    blankField('Station', M, colW);
+    blankField('Date', M+colW+20, colW);
+    y += 30;
+
+    dashedLine(y);
+    y += 26;
+
+    const recipeCount = Math.max($$all(document,'.recipe-block').length, 1);
+    for(let idx=0; idx<recipeCount; idx++){
+      sectionHeader('Recipe ' + (idx+1));
+
+      blankField('Recipe name', M, contentW);
+      y += 34;
+
+      const thirdW = (contentW - 40) / 3;
+      blankField('Yield written', M, thirdW);
+      blankField('Yield you need', M+thirdW+20, thirdW);
+      blankField('Unit', M+2*(thirdW+20), thirdW);
+      y += 30;
+      blankField('Scaling factor', M, thirdW);
+      y += 32;
+
+      blankBlock('In one sentence: what are you making, and how?', 2);
+
+      sectionHeader('Ingredients to recalculate', ink);
+      blankTable(['Ingredient','Recipe Amount','Scaled Amount'], 5, ink);
+
+      blankBlock('Not scaled linearly, and why', 2);
+
+      sectionHeader('Mise en place sequence', turmeric);
+      blankTable(['#','Prep Task','Why This Order'], 4, turmeric, {0:{cellWidth:20}});
+
+      sectionHeader('Special equipment', turmeric);
+      blankTable(['Item','Notes'], 2, turmeric);
+
+      sectionHeader('Critical control points', chili);
+      blankTable(['#','Step','Hazard','Control Measure'], 3, chili, {0:{cellWidth:20}});
+
+      blankBlock('Most likely to slip / fallback plan', 2);
+
+      if(idx < recipeCount - 1){
+        dashedLine(y);
+        y += 20;
+      }
+    }
+
+    dashedLine(y);
+    y += 26;
+
+    sectionHeader('Team Check-In & Task Assignment', leaf);
+    blankTable(['Team Member','Role Today'], 4, leaf);
+    blankTable(['#','Recipe','Task','Assigned To','Notes'], 6, leaf, {0:{cellWidth:18}});
+
+    blankBlock('Changes needed after group meets, prior to beginning recipe (e.g. a member missing)', 4);
+
+    ensureSpace(60);
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(9.5);
+    doc.setTextColor(...soft);
+    doc.text('INSTRUCTOR/TECHNICIAN', M, y);
+    y += 20;
+    doc.setDrawColor(...ink);
+    doc.setLineWidth(0.8);
+    doc.line(M, y, M+220, y);
+    doc.line(M+260, y, M+contentW, y);
+    doc.setFont('helvetica','normal');
+    doc.setFontSize(8.5);
+    doc.setTextColor(...soft);
+    doc.text('Instructor/Technician initials', M, y+12);
+    doc.text('Time', M+260, y+12);
+    y += 30;
+
+    const pageCount = doc.internal.getNumberOfPages();
+    for(let i=1;i<=pageCount;i++){
+      doc.setPage(i);
+      const fy = pageH - 34;
+      doc.setDrawColor(...rule);
+      doc.setLineDashPattern([2,2], 0);
+      doc.line(M, fy, pageW-M, fy);
+      doc.setLineDashPattern([], 0);
+      doc.setFont('helvetica','normal');
+      doc.setFontSize(8);
+      doc.setTextColor(...soft);
+      doc.text('Blank template · generated ' + new Date().toLocaleString(), M, fy+14);
+      const pgLabel = 'Page ' + i + ' of ' + pageCount;
+      doc.text(pgLabel, pageW - M - doc.getTextWidth(pgLabel), fy+14);
+    }
+
+    doc.save('lab-work-plan-blank-template.pdf');
+  }
+
+  document.getElementById('generateBlankBtn').addEventListener('click', ()=>{
+    buildBlankPdf();
+    document.getElementById('genNote').textContent = 'Blank fill-in PDF downloaded.';
+    setTimeout(()=>{ document.getElementById('genNote').textContent = ''; }, 5000);
+  });
 </script>
-</body>
-</html>
+
 </body>
 </html>
